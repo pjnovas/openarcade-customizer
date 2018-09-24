@@ -2,6 +2,7 @@ const combinations = {
   blackgreen: {
     buttons: 'green',
     USB_rack: 'black',
+    USB_output: 'black',
     ventilation_buttons: 'black',
     ventilation: 'black',
     cheat_buttons: 'black',
@@ -18,6 +19,7 @@ const combinations = {
   blackblue: {
     buttons: 'blue',
     USB_rack: 'black',
+    USB_output: 'black',
     ventilation_buttons: 'black',
     ventilation: 'black',
     cheat_buttons: 'black',
@@ -34,6 +36,7 @@ const combinations = {
   blackred: {
     buttons: 'red',
     USB_rack: 'black',
+    USB_output: 'black',
     ventilation_buttons: 'black',
     ventilation: 'black',
     cheat_buttons: 'black',
@@ -50,6 +53,7 @@ const combinations = {
   whitegreen: {
     buttons: 'green',
     USB_rack: 'white',
+    USB_output: 'white',
     ventilation_buttons: 'white',
     ventilation: 'white',
     cheat_buttons: 'white',
@@ -66,6 +70,7 @@ const combinations = {
   whiteblue: {
     buttons: 'blue',
     USB_rack: 'white',
+    USB_output: 'white',
     ventilation_buttons: 'white',
     ventilation: 'white',
     cheat_buttons: 'white',
@@ -82,6 +87,7 @@ const combinations = {
   whitered: {
     buttons: 'red',
     USB_rack: 'red',
+    USB_output: 'red',
     ventilation_buttons: 'red',
     ventilation: 'red',
     cheat_buttons: 'red',
@@ -98,6 +104,7 @@ const combinations = {
   monocrome_white: {
     buttons: 'white',
     USB_rack: 'black',
+    USB_output: 'black',
     ventilation_buttons: 'black',
     ventilation: 'black',
     cheat_buttons: 'black',
@@ -114,6 +121,7 @@ const combinations = {
   monocrome_black: {
     buttons: 'black',
     USB_rack: 'white',
+    USB_output: 'white',
     ventilation_buttons: 'white',
     ventilation: 'white',
     cheat_buttons: 'white',

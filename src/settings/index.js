@@ -45,6 +45,11 @@ const getSettings = (sz = {
     rotations: [[0, Math.PI, 0]],
     material: 'filament'
   },
+  USB_output: {
+    positions: [[-44, 14, -sz.depth/2 + sz.thick]],
+    rotations: [[0, Math.PI, 0]],
+    material: 'filament'
+  },
   leg: {
     positions: [
       [-sz.width/2, 0, -sz.depth/2],

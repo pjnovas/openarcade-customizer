@@ -1,6 +1,7 @@
 
 const models = [
   'USB_rack',
+  'USB_output',
   'leg',
   'rpi_back_w_selector',
   'ventilation_buttons',

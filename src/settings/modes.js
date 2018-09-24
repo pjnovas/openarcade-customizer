@@ -37,12 +37,14 @@ const modes = {
   ],
   joystick_cheater: [
     'leg',
+    'USB_output',
     'buttons',
     'cheat_buttons',
     'button12'
   ],
   joystick: [
     'leg',
+    'USB_output',
     'buttons',
     'button12'
   ]
