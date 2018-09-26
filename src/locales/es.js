@@ -3,7 +3,14 @@ export default {
     title: 'Open Arcade Personalizador'
   },
   fields: {
-    mode_selector: 'Modo'
+    mode_selector: 'Modo',
+    size_selector: {
+      label: 'Tamaño',
+      width: 'Ancho',
+      height: 'Alto',
+      depth: 'Largo',
+      thick: 'Espesor',
+    }
   },
   modes: {
     retropie_full: 'RetroPie Full',

@@ -12,7 +12,7 @@ const ModeSelector = ({
   onChange
 }) => 
   <div className="ModeSelector">
-    <label for="mode-selector"><Text id="fields.mode_selector"/></label>
+    <label htmlFor="mode-selector"><Text id="fields.mode_selector"/></label>
     <select id="mode-selector" selected={mode} onChange={onChange}>
       {modes.map(({value, label}) =>  
         <option key={value} value={value}>{label}</option>

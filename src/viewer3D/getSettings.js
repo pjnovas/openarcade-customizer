@@ -1,6 +1,8 @@
 
 // TODO: move into a Selector
 
+const legoff = 6;
+
 const getSettings = (sz = {
   width: 200, // X
   height: 70, // Y
@@ -13,7 +15,7 @@ const getSettings = (sz = {
     material: 'button'
   },
   USB_rack: {
-    positions: [[sz.width/2 - 15/2, sz.height/2, 0]],
+    positions: [[sz.width/2 + sz.thick - 14, sz.height/2, 0]],
     rotations: [[-Math.PI / 2, 0, -Math.PI / 2]],
     material: 'filament'
   },
@@ -49,10 +51,10 @@ const getSettings = (sz = {
   },
   leg: {
     positions: [
-      [-sz.width/2, 0, -sz.depth/2],
-      [-sz.width/2, 0, sz.depth/2],
-      [sz.width/2, 0, sz.depth/2],
-      [sz.width/2, 0, -sz.depth/2]
+      [-sz.width/2 - (sz.thick - legoff), 0, -sz.depth/2 - (sz.thick - legoff)],
+      [-sz.width/2 - (sz.thick - legoff), 0, sz.depth/2 + (sz.thick - legoff)],
+      [sz.width/2 + (sz.thick - legoff), 0, sz.depth/2 + (sz.thick - legoff)],
+      [sz.width/2 + (sz.thick - legoff), 0, -sz.depth/2 - (sz.thick - legoff)]
     ],
     rotations: [
       [0, - Math.PI / 2, 0],
@@ -132,7 +134,7 @@ const getSettings = (sz = {
       height: sz.thick,
       depth: sz.depth
     },
-    positions: [[0, sz.height - sz.thick, 0]],
+    positions: [[0, sz.height - sz.thick/2, 0]],
     rotations: [[0, 0, 0]],
     material: 'vinyl'
   }
