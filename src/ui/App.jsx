@@ -1,15 +1,11 @@
 import React from 'react';
 import LanguageSelector from './LanguageSelector';
+import ModeSelector from './ModeSelector';
 
 const App = () => 
   <div>
     <LanguageSelector/>
-    Hey!
-    <select>
-      <option>test1</option>
-      <option>test2</option>
-      <option>test3</option>
-    </select>  
+    <ModeSelector/>
   </div>
 
 export default App

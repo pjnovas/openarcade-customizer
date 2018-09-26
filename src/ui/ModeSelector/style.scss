@@ -1,0 +1,25 @@
+.ModeSelector {
+  label {
+    display: block;
+    font-size: 1.5em;
+    padding: 10px 0;
+    font-weight: bold;
+  }
+
+  select {
+    display: block;
+    font-size: 1.2em;
+    border: 2px solid gray;
+    background: transparent;
+    color: #fff;
+    padding: 5px 10px;
+    width: 100%;
+
+    option {
+      color: #000;
+    }
+  }
+  
+  padding-bottom: 20px;
+  border-bottom: 2px solid gray;
+}

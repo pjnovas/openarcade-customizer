@@ -2,6 +2,17 @@ export default {
   app: {
     title: 'Open Arcade Customizer'
   },
+  fields: {
+    mode_selector: 'Mode'
+  },
+  modes: {
+    retropie_full: 'RetroPie Full',
+    retropie_cheater: 'RetroPie Cheater',
+    retropie: 'RetroPie',
+    retropie_solo: 'RetroPie Solo',
+    joystick_cheater: 'Joystick Cheater',
+    joystick: 'Joystick',
+  },
   parts: {
     titles: {
       side_left: 'Box Left Side',
