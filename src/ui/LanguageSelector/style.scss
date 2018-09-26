@@ -1,0 +1,23 @@
+.LanguageSelector {
+  position: fixed;
+  right: 0;
+  top: 0;
+  padding: 10px;
+  font-size: 1.2em;
+  z-index: 100;
+
+  a {
+    cursor: pointer;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &:hover {
+    background-color: #fff;
+
+    a {
+      color: #000;
+    }
+  }
+}

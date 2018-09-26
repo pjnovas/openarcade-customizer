@@ -1,8 +1,5 @@
 
-export {default as combinations} from './combinations';
-export {default as colors} from './colors';
-export {default as modes} from './modes';
-export {default as models} from './models';
+// TODO: move into a Selector
 
 const getSettings = (sz = {
   width: 200, // X

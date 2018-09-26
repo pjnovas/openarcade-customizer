@@ -1,5 +1,5 @@
 
-const modes = {
+const initial = {
   retropie_full: [
     'leg',
     'USB_rack',
@@ -50,4 +50,8 @@ const modes = {
   ]
 };
 
-export default modes;
+export const reducer = (state = initial, action = {}) => {
+  return state;
+};
+
+export default reducer;

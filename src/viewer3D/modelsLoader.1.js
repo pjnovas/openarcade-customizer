@@ -3,13 +3,14 @@ import * as THREE from 'three';
 import get from 'lodash/get';
 import times from 'lodash/times';
 import noop from 'lodash/noop';
+import flatten from 'lodash/flatten';
 
 import getSettings, {
   combinations,
   modes,
   box,
   colors
-} from './settings';
+} from '../settings';
 
 const STLLoader = require('three-stl-loader')(THREE);
 
@@ -31,7 +32,6 @@ export default (scene, mode, combination) => Promise.all(
     Object.assign(result, {
       [name]: new THREE.MeshPhongMaterial(
         Object.assign({
-          // flatShading: true,
           vertexColors: THREE.VertexColors,
           shininess: 0
         }, {
@@ -55,23 +55,26 @@ export default (scene, mode, combination) => Promise.all(
     return mesh;
   }
   
-  all.map(({model, geometry}) => {
-    times(get(settings, `${model}.positions.length`, 1), i => createMesh({
-      geometry,
-      material: materials[model] || new THREE.MeshPhongMaterial({
-        vertexColors: THREE.VertexColors,
-        shininess: 0
-      }),
-      position: get(settings, `${model}.positions[${i}]`),
-      rotation: get(settings, `${model}.rotations[${i}]`)
-    })).map(mesh => {
+  let meshes = flatten(
+    all.map(({model, geometry}) => 
+      times(get(settings, `${model}.positions.length`, 1), i => createMesh({
+        geometry,
+        material: materials[model] || new THREE.MeshPhongMaterial({
+          vertexColors: THREE.VertexColors,
+          shininess: 0
+        }),
+        position: get(settings, `${model}.positions[${i}]`),
+        rotation: get(settings, `${model}.rotations[${i}]`)
+      })
+    ).map(mesh => {
       mesh.castShadow = true;
       mesh.receiveShadow = true;
-      scene.add( mesh );
-    });
-  });
+      scene.add(mesh);
+      return mesh;
+    }))
+  );
 
-  [
+  let sides = [
     'side_left',
     'side_right',
     'side_base',
@@ -90,13 +93,15 @@ export default (scene, mode, combination) => Promise.all(
 
     mesh.castShadow = true;
     mesh.receiveShadow = true;
-    scene.add( mesh );
+    scene.add(mesh);
+    return mesh;
   });
   
-  /*
-  setTimeout(() => {
-    material.color.setHex(0xff55ff);
-    material.needsUpdate = true
-  }, 2000);
-  */
+  return {
+    destroyAll: () => {
+      sides.forEach(side => scene.remove(side));
+      meshes.forEach(mesh => scene.remove(mesh));
+      Object.keys(materials).forEach(material => materials[material].dispose());
+    }
+  };
 });

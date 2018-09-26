@@ -1,0 +1,27 @@
+body {
+  font-family: Monospace;
+  background-color: #000;
+  color: #fff;
+  margin: 0px;
+  overflow: hidden;
+}
+
+.wrapper {
+  /*display: flex;*/
+}
+
+#ui {
+  position: fixed;
+  width: 20%;
+  height: 100%;
+  
+  /*flex: 1 1 auto;*/
+
+  background: rgba(0,0,0,0.1);
+  padding: 10px;
+  font-size: 1em;
+}
+
+#viewport-ctn {
+  /*flex: 2 1 auto;*/
+}

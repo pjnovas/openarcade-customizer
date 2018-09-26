@@ -1,5 +1,5 @@
 
-const colors = {
+const initial = {
   filament: {
     black: 0x222222,
     white: 0xe1e1e3,
@@ -41,4 +41,8 @@ const colors = {
   }
 }
 
-export default colors;
+export const reducer = (state = initial, action = {}) => {
+  return state;
+};
+
+export default reducer;

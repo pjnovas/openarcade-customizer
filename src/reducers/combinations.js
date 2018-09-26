@@ -1,4 +1,4 @@
-const combinations = {
+const initial = {
   blackgreen: {
     buttons: 'green',
     USB_rack: 'black',
@@ -137,4 +137,8 @@ const combinations = {
   }
 }
 
-export default combinations;
+export const reducer = (state = initial, action = {}) => {
+  return state;
+};
+
+export default reducer;
