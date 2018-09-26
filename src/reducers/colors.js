@@ -8,18 +8,13 @@ const initial = {
     red: 0xff0000 // red?
   },
   vinyl: {
-    //flat: {
-      black: 0x222222,
-      white: 0xe1e1e3,
-      malachite: 0x26c950, // green
-      summerSky: 0x4ba7dc, // Blue
-      malibu: 0x63add8, // light blue
-    //},
-    //bright: {
-      //black: 0x222222,
-      redOrange: 0xfe3335, // red
-      pigmentGreen: 0x00aa3f // green
-    //}
+    black: 0x222222,
+    white: 0xe1e1e3,
+    malachite: 0x26c950, // green
+    summerSky: 0x4ba7dc, // Blue
+    malibu: 0x63add8, // light blue
+    redOrange: 0xfe3335, // red
+    pigmentGreen: 0x00aa3f // green
   },
   stick: {
     black: 0x222222, // idk

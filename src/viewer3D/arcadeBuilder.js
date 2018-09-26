@@ -32,17 +32,14 @@ export default ({scene, store}) => {
   let settings = getSettings(box);
   let modelGeometries = modes[mode].reduce((all, model) => ({...all, [model]: models.geometries[model]}), {});
 
-  let comb = combinations[combination];
-  if (!comb) throw new Error(`Combination ${combination} NOT FOUND`);
-
-  let materials = Object.keys(comb).reduce((result, name) => 
+  let materials = Object.keys(combination).reduce((result, name) => 
     Object.assign(result, {
       [name]: new THREE.MeshPhongMaterial(
         Object.assign({
           vertexColors: THREE.VertexColors,
           shininess: 0
         }, {
-          color: get(colors, `${settings[name].material}[${comb[name]}]`)
+          color: get(colors, `${settings[name].material}[${combination[name]}]`)
         })
       )}
     )

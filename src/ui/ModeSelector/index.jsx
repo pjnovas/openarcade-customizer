@@ -35,7 +35,7 @@ export const mapStateToProps = state => ({
 });
 
 export const mapDispatchToProps = dispatch => ({
-  onChange: e => dispatch({ type: 'CURRENT_CHANGE', payload: {mode: e.target.value} })
+  onChange: e => dispatch({ type: 'CURRENT_CHANGE_MODE', payload: e.target.value })
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ModeSelector);
