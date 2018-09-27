@@ -10,6 +10,7 @@ export {reducer as materials} from './materials';
 
 export {reducer as intl} from '/ui/LanguageSelector';
 export {reducer as colorPicker} from '/ui/ColorPicker';
+export {reducer as menu} from '/ui/Menu';
 
 // Selection
 

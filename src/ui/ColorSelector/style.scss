@@ -1,16 +1,8 @@
 .ColorSelector {
-  padding: 20px 0;
-  border-bottom: 2px solid gray;
-
-  >label {
-    display: block;
-    font-size: 1.5em;
-    font-weight: bold;
-  }
-
   ul {
     list-style: none;
     padding-left: 0;
+    width: 100%;
 
     li {
       font-size: 1.2em;

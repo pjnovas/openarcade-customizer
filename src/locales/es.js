@@ -12,7 +12,7 @@ export default {
       thick: 'Espesor',
     },
     color_selector: {
-      label: 'Colors'
+      label: 'Colores'
     }
   },
   modes: {

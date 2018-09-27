@@ -1,0 +1,26 @@
+.MenuItem {
+  border-bottom: 2px solid gray;
+
+  display: flex;
+  align-items: stretch;
+  flex-direction: column;
+
+  .MenuHeader {
+    display: flex;
+    flex: 1 1 auto;
+
+    cursor: pointer;
+    font-size: 1.5em;
+    font-weight: bold;  
+    
+    width: 100%;
+    padding: 10px 0;
+  }
+
+  .MenuContent {
+    display: flex;
+    flex: 1 0 auto;
+    width: 100%;
+  }
+
+}

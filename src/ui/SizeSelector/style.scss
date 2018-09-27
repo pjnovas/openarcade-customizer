@@ -1,11 +1,4 @@
 .SizeSelector {
-  
-  >label {
-    display: block;
-    font-size: 1.5em;
-    font-weight: bold;
-  }
-
   ul {
     list-style: none;
     padding-left: 10px;
@@ -31,7 +24,4 @@
       text-align: right;
     }
   }
-  
-  padding-bottom: 20px;
-  border-bottom: 2px solid gray;
 }

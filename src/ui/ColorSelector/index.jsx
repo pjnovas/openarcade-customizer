@@ -7,12 +7,13 @@ import intersection from 'lodash/intersection';
 
 import ColorPicker from '/ui/ColorPicker';
 import Text from '/ui/Text';
+import {MenuItemContainer} from '/ui/Menu';
 
 const ColorSelector = ({
   parts
 }) => 
   <div className="ColorSelector">
-    <label><Text id="fields.color_selector.label"/></label>
+    <MenuItemContainer name="color_selector">
     <ul>
       {parts.map(part => 
         <li key={part}>
@@ -20,6 +21,7 @@ const ColorSelector = ({
         </li>
       )}
     </ul>
+    </MenuItemContainer>
   </div>
 
 ColorSelector.propTypes = {
