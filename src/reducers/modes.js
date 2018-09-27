@@ -1,3 +1,4 @@
+import invert from 'lodash/invert';
 
 const initial = {
   retropie_full: [
@@ -49,6 +50,21 @@ const initial = {
     'button12'
   ]
 };
+
+
+const ids = {
+  retropie_full: 'rif',
+  retropie_cheater: 'ric',
+  retropie: 'ri',
+  retropie_solo: 'ris',
+  joystick_cheater: 'jc',
+  joystick: 'j'
+};
+
+const nameOfIds = invert(ids);
+
+export const stringToValue = id => nameOfIds[id];
+export const valueToString = name => ids[name];
 
 export const reducer = (state = initial, action = {}) => {
   return state;
