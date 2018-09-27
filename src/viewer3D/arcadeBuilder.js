@@ -20,6 +20,7 @@ export default ({scene, store}) => {
     modes,
     colors,
     models,
+    materials,
     current
   } = store.getState();
 
@@ -32,14 +33,14 @@ export default ({scene, store}) => {
   let settings = getSettings(box);
   let modelGeometries = modes[mode].reduce((all, model) => ({...all, [model]: models.geometries[model]}), {});
 
-  let materials = Object.keys(combination).reduce((result, name) => 
+  let meshMaterials = Object.keys(combination).reduce((result, name) => 
     Object.assign(result, {
       [name]: new THREE.MeshPhongMaterial(
         Object.assign({
           vertexColors: THREE.VertexColors,
           shininess: 0
         }, {
-          color: get(colors, `${settings[name].material}[${combination[name]}]`)
+          color: parseInt(get(colors, `${materials[name]}[${combination[name]}]`), 16)
         })
       )}
     )
@@ -49,7 +50,7 @@ export default ({scene, store}) => {
     Object.keys(modelGeometries).map(model => 
       times(get(settings, `${model}.positions.length`, 1), i => createMesh({
         geometry: modelGeometries[model],
-        material: materials[model] || new THREE.MeshPhongMaterial({
+        material: meshMaterials[model] || new THREE.MeshPhongMaterial({
           vertexColors: THREE.VertexColors,
           shininess: 0
         }),
@@ -76,7 +77,7 @@ export default ({scene, store}) => {
 
     let mesh = createMesh({
       geometry: new THREE.CubeGeometry(size.width, size.height, size.depth),
-      material: materials[name] || noop(),
+      material: meshMaterials[name] || noop(),
       position: get(settings, `${name}.positions[0]`),
       rotation: get(settings, `${name}.rotations[0]`)
     });
@@ -90,6 +91,6 @@ export default ({scene, store}) => {
   return () => {
     sides.forEach(side => scene.remove(side));
     meshes.forEach(mesh => scene.remove(mesh));
-    Object.keys(materials).forEach(material => materials[material].dispose());
+    Object.keys(meshMaterials).forEach(material => meshMaterials[material].dispose());
   };
 };

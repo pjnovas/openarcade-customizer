@@ -10,6 +10,9 @@ export default {
       height: 'Alto',
       depth: 'Largo',
       thick: 'Espesor',
+    },
+    color_selector: {
+      label: 'Colors'
     }
   },
   modes: {
@@ -27,15 +30,23 @@ export default {
       side_right: 'Parte Derecha',
       side_back: 'Parte Trasera',
       side_base: 'Base',
-      els: 'Eles superiores',
-      panel: 'Panel de Botones',
-      acrylic: 'Acrílico superior',
-      ventilation: 'Botones derechos',
-      legs: 'Patas',
-      controls: 'Palanca y Botones Arcade',
-      usb: 'USB rack',
-      power_button: 'Boton de encendido',
-      rpi: 'Puertos de Raspberry Pi'
+      side_top: 'Panel de Botones',
+
+      buttons: 'Palanca y Botones Arcade',
+      leg: 'Patas',
+
+      // Right
+      USB_rack: 'USB Switch Lateral',
+
+      // Back
+      USB_output: 'Salida USB del Jostick',
+      rpi_back_w_selector: 'Puertos de RaspberryPi con USB del Joystick',
+      rpi_back: 'Puertos de RaspberryPi',
+      
+      // Left
+      cheat_buttons: 'Botones Cheat',
+      ventilation: 'Ventilacion',
+      ventilation_buttons: 'Ventilacion con Cheat'
     }
   }
 }

@@ -24,6 +24,7 @@
     "lodash": "^4.17.11",
     "prop-types": "^15.6.2",
     "react": "^16.5.2",
+    "react-color": "^2.14.1",
     "react-dom": "^16.5.2",
     "react-redux": "^5.0.7",
     "redux": "^4.0.0",

@@ -10,6 +10,9 @@ export default {
       height: 'Height',
       depth: 'Depth',
       thick: 'Thick',
+    },
+    color_selector: {
+      label: 'Colors'
     }
   },
   modes: {
@@ -27,15 +30,23 @@ export default {
       side_right: 'Box Right Side',
       side_back: 'Box Back Side',
       side_base: 'Box Base Side',
-      els: 'Box Top Els',
-      panel: 'Buttons Panel Layout',
-      acrylic: 'Top Art Acrylic',
-      ventilation: 'Right side buttons',
-      legs: 'Box Legs',
-      controls: 'Arcade Stick and Buttons',
-      usb: 'USB rack',
-      power_button: 'Power Button',
-      rpi: 'Raspberry Pi Ports'
+      side_top: 'Box Top',
+
+      buttons: 'Buttons Panel Layout',
+      leg: 'Box Legs',
+
+      // Right
+      USB_rack: 'USB Switch Lateral',
+
+      // Back
+      USB_output: 'Jostick Output USB',
+      rpi_back_w_selector: 'RaspberryPi Ports with Jostick Output USB',
+      rpi_back: 'RaspberryPi Ports',
+      
+      // Left
+      cheat_buttons: 'Cheat Buttons',
+      ventilation: 'Ventilation',
+      ventilation_buttons: 'Ventilation with Cheat Buttons'
     }
   }
 }
