@@ -13,6 +13,9 @@ export default {
     },
     color_selector: {
       label: 'Colores'
+    },
+    presets_selector: {
+      label: 'Combinaciones'
     }
   },
   modes: {

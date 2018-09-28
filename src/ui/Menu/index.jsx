@@ -7,6 +7,7 @@ import {connect} from 'react-redux';
 import SizeSelector from '/ui/SizeSelector';
 import ModeSelector from '/ui/ModeSelector';
 import ColorSelector from '/ui/ColorSelector';
+import PresetsSelector from '/ui/PresetsSelector';
 
 import Text from '/ui/Text';
 
@@ -74,6 +75,7 @@ const Menu = () =>
   <div className="Menu">
     <ModeSelector/>
     <SizeSelector/>
+    <PresetsSelector/>
     <ColorSelector/>
   </div>
 

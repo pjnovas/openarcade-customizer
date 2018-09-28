@@ -3,7 +3,8 @@ import * as THREE from 'three';
 export default () => {
   let scene = new THREE.Scene();
   scene.background = new THREE.Color(0x999999);
-  scene.fog = new THREE.Fog(0xa0a0a0, 500, 1000);
+  // scene.background = new THREE.Color(0x999999);
+  // scene.fog = new THREE.Fog(0xa0a0a0, 500, 1000);
 
   // Lights 
   let hemiLight = new THREE.HemisphereLight(0xffffff, 0x444444);
@@ -20,15 +21,18 @@ export default () => {
 
   // Ground
 
-  let ground = new THREE.Mesh(new THREE.PlaneBufferGeometry(2000, 2000), new THREE.MeshPhongMaterial( { color: 0x999999, depthWrite: false }));
+  let ground = new THREE.Mesh(
+    new THREE.PlaneBufferGeometry(600, 600), 
+    new THREE.MeshPhongMaterial({ color: 0x222222, depthWrite: false })
+  );
   ground.rotation.x = - Math.PI / 2;
   ground.receiveShadow = true;
   scene.add(ground);
-
+/*
   let grid = new THREE.GridHelper(2000, 100, 0x000000, 0x888888);
   grid.material.opacity = 0.15;
   grid.material.transparent = true;
   scene.add(grid);
-
+*/
   return scene;
 } 

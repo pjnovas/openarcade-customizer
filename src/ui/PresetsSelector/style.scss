@@ -1,0 +1,28 @@
+.PresetsSelector {
+  .presets {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+
+    a {
+      cursor: pointer;
+      border-radius: 50%;
+      border: 3px solid #fff;
+      overflow: hidden;
+      margin: 10px 0;
+
+      &:hover {
+        box-shadow: 0 0 20px rgb(255, 255, 255);
+      }
+
+      div {
+        width: 100px;
+        height: 100px;
+
+        background-repeat: no-repeat;
+        background-position: 50%;
+        background-size: cover;
+      }
+    }
+  }
+}
