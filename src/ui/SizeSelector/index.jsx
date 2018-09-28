@@ -15,7 +15,7 @@ const SizeSelector = ({
   onChange
 }) => 
   <div className="SizeSelector">
-    <MenuItemContainer name="size_selector" closedMsg={`(${width}x${height}x${depth} | ${thick} mm)`} openMsg=" (mm)">
+    <MenuItemContainer name="size_selector" closedMsg={`${width}x${height}x${depth} ${thick} mm`} openMsg=" (mm)">
       <ul>
         <li>
           <label><Text id="fields.size_selector.width"/></label>

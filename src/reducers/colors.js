@@ -3,14 +3,14 @@ import invert from 'lodash/invert';
 const initial = {
   filament: {
     black: '222222',
-    white: 'e1e1e3',
+    white: 'ffffff',
     green: '1de250',
     blue: '0000ff',
     red: 'ff0000'
   },
   vinyl: {
     black: '1c1c1a',      // 2011
-    white: 'e1e1e3',      // 2010
+    white: 'ffffff',      // 2010
     green: '00a947',      // 2068
     green2: '00903d',     // 2061
     blue: '0063af',       // 2052
@@ -31,7 +31,7 @@ const initial = {
   },
   stick: {
     black: '222222', // idk
-    white: 'e1e1e3', // idk
+    white: 'ffffff', // idk
     blue: '4ba7dc',
     green: '00c467',
     red: 'e01a35', // idk
@@ -40,7 +40,7 @@ const initial = {
   },
   button: {
     black: '222222', // idk
-    white: 'e1e1e3', // idk
+    white: 'ffffff', // idk
     blue: '588fb6',
     green: '00aa3f',
     red: 'e01a35', // idk

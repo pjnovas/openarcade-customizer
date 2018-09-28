@@ -48,5 +48,12 @@ export default {
       ventilation: 'Ventilacion',
       ventilation_buttons: 'Ventilacion con Cheat'
     }
+  },
+  materials: {
+    titles: {
+      button: 'Botones Arcade',
+      filament: 'Filamento de impresión 3D',
+      vinyl: 'Vinilo Mate'
+    }
   }
 }

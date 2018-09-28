@@ -8,7 +8,6 @@ import get from 'lodash/get';
 import values from 'lodash/values';
 import memoize from 'lodash/memoize';
 
-import { CirclePicker } from 'react-color';
 import Text from '/ui/Text';
 
 // Reducer
@@ -35,6 +34,7 @@ const selectCurrentHEXColorByPart = (state, part) => {
 
 const ColorPicker = ({
   editing,
+  material,
   part,
   color,
   colorNames,
@@ -49,16 +49,19 @@ const ColorPicker = ({
     </a>
     {editing &&
       <div className="picker">
-        <CirclePicker 
-          color={color}
-          onChangeComplete={color => onChange(colorNames[colorValues.indexOf(color.hex)])}
-          colors={colorValues}/>
+        {colorValues.map(c => 
+          <a key={c} className={`color-circle ${c === color ? 'active' : ''}`}
+            style={{backgroundColor: c}}
+            onClick={onChange(colorNames[colorValues.indexOf(c)])}></a>
+        )}
+        <p className="material"><Text id={`materials.titles.${material}`}/></p>
       </div>
     }
   </div>
 
 ColorPicker.propTypes = {
   part: PropTypes.string.isRequired,
+  material: PropTypes.string,
   color: PropTypes.string,
   colorNames: PropTypes.arrayOf(PropTypes.string),
   colorValues: PropTypes.arrayOf(PropTypes.string),
@@ -71,6 +74,7 @@ ColorPicker.defaultProps = {
 };
 
 export const mapStateToProps = (state, ownProps) => ({
+  material: getMaterialByPart(state, ownProps.part),
   color: selectCurrentHEXColorByPart(state, ownProps.part),
   colorValues: values(selectAllowedHEXColorByPart(state, ownProps.part)).map(v => `#${v}`),
   colorNames: Object.keys(selectAllowedHEXColorByPart(state, ownProps.part)),
@@ -78,7 +82,7 @@ export const mapStateToProps = (state, ownProps) => ({
 });
 
 export const mapDispatchToProps = (dispatch, ownProps) => ({
-  onChange: colorName => 
+  onChange: colorName => e =>
     dispatch({type: 'CURRENT_CHANGE_COMBINATION', payload: {[ownProps.part]: colorName}}),
   onEditClick: () => dispatch({type: COLOR_PICKER_SET_EDITING, payload: ownProps.part})
 });

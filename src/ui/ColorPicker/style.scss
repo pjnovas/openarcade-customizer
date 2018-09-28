@@ -29,7 +29,7 @@
     }
 
     &.active {
-      background-color: #fdfdfd;
+      background-color: rgba(255,255,255, 0.8);
       label {
         color: #000;
       }
@@ -37,8 +37,37 @@
   }
 
   .picker {
+    position: relative;
     display: flex;
     padding: 10px;
-    background-color: #fdfdfd;
+    padding-bottom: 30px;
+    background-color: rgba(255,255,255, 0.8);
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    .color-circle {
+      flex: 0 1 auto;
+      width: 8px;
+      height: 8px;
+      cursor: pointer;
+      margin: 5px;
+      padding: 10px;
+      border-radius: 50%;
+      border: 2px solid transparent;
+
+      &:hover, &.active {
+        border: 2px solid black;
+      }
+    }
+
+    .material {
+      color: #666;
+      font-style: italic;
+      font-size: 0.7em;
+
+      position: absolute;
+      right: 10px;
+      bottom: 0;
+    }
   }
 }

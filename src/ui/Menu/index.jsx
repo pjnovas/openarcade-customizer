@@ -36,7 +36,7 @@ export const MenuItem = ({
 }) => 
   <div className="MenuItem">
     <a className="MenuHeader" onClick={onChange(name)}>
-      <Text id={`fields.${name}.label`}/>{collapsed ? closedMsg : openMsg}
+      <Text id={`fields.${name}.label`}/><span>{collapsed ? closedMsg : openMsg}</span>
     </a>
     {!collapsed &&
       <div className="MenuContent">
