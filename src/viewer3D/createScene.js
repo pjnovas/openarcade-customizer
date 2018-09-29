@@ -2,7 +2,7 @@ import * as THREE from 'three';
 
 export default () => {
   let scene = new THREE.Scene();
-  scene.background = new THREE.Color(0x999999);
+  //scene.background = new THREE.Color(0x999999);
 
   // Lights 
   let hemiLight = new THREE.HemisphereLight(0xffffff, 0x444444);
@@ -18,7 +18,7 @@ export default () => {
   scene.add(directionalLightBack);
 
   // Ground
-
+/*
   let ground = new THREE.Mesh(
     new THREE.PlaneBufferGeometry(600, 600), 
     new THREE.MeshPhongMaterial({ color: 0x222222, depthWrite: false })
