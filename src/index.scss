@@ -6,25 +6,6 @@ body {
   overflow: hidden;
 }
 
-.wrapper {
-  /*display: flex;*/
-}
-
 #ui {
-  position: fixed;
-  width: 300px;
-  height: 100%;
   
-  /*flex: 1 1 auto;*/
-
-  background: rgba(0,0,0,0.6);
-  padding: 10px;
-  font-size: 1em;
-
-  border-right: 1px solid silver;
-  overflow: auto;
-}
-
-#viewport-ctn {
-  /*flex: 2 1 auto;*/
 }

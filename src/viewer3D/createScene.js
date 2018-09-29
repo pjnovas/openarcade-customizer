@@ -3,8 +3,6 @@ import * as THREE from 'three';
 export default () => {
   let scene = new THREE.Scene();
   scene.background = new THREE.Color(0x999999);
-  // scene.background = new THREE.Color(0x999999);
-  // scene.fog = new THREE.Fog(0xa0a0a0, 500, 1000);
 
   // Lights 
   let hemiLight = new THREE.HemisphereLight(0xffffff, 0x444444);

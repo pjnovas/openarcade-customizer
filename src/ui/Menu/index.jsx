@@ -1,13 +1,10 @@
 import './style.scss';
 
+import noop from 'lodash/noop';
 import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 
-import SizeSelector from '/ui/SizeSelector';
-import ModeSelector from '/ui/ModeSelector';
-import ColorSelector from '/ui/ColorSelector';
-import PresetsSelector from '/ui/PresetsSelector';
 
 import Text from '/ui/Text';
 
@@ -15,7 +12,7 @@ import Text from '/ui/Text';
 
 const MENU_CHANGE_VISIBLE = 'MENU_CHANGE_VISIBLE';
 
-export const reducer = (state = {visible: ''}, action = {}) => {
+export const reducer = (state = {visible: 'color_selector'}, action = {}) => {
   switch (action.type) {
     case MENU_CHANGE_VISIBLE: {
       if(action.payload === state.visible) return {visible: ''};
@@ -29,19 +26,20 @@ export const reducer = (state = {visible: ''}, action = {}) => {
 
 export const MenuItem = ({
   name, 
-  collapsed, 
+  visible, 
   openMsg, 
   closedMsg, 
   onChange, 
+  nonTogglable,
   children
 }) => 
   <div className="MenuItem">
-    <a className="MenuHeader" onClick={onChange(name)}>
-      <Text id={`fields.${name}.label`}/><span>{collapsed ? closedMsg : openMsg}</span>
+    <a className="MenuHeader" onClick={nonTogglable ? noop : onChange(name)}>
+      <Text id={`fields.${name}.label`}/><span>{visible ? openMsg : closedMsg}</span>
     </a>
-    {!collapsed &&
+    {(nonTogglable || visible) &&
       <div className="MenuContent">
-        {!collapsed && children}
+        {children}
       </div>
     }
   </div>
@@ -51,6 +49,7 @@ MenuItem.propTypes = {
   openMsg: PropTypes.string,
   closedMsg: PropTypes.string,
   collapsed: PropTypes.bool,
+  nonTogglable: PropTypes.bool,
   onChange: PropTypes.func
 };
 
@@ -60,7 +59,7 @@ MenuItem.defaultProps = {
 };
 
 export const mapStateToProps = (state, ownProps) => ({
-  collapsed: state.menu.visible !== ownProps.name
+  visible: state.menu.visible === ownProps.name
 });
 
 export const mapDispatchToProps = dispatch => ({
@@ -71,12 +70,9 @@ export const MenuItemContainer = connect(mapStateToProps, mapDispatchToProps)(Me
 
 ////////////////
 
-const Menu = () => 
-  <div className="Menu">
-    <ModeSelector/>
-    <SizeSelector/>
-    <PresetsSelector/>
-    <ColorSelector/>
+const Menu = ({children, className}) => 
+  <div className={`Menu ${className || ''}`}>
+    {children}
   </div>
 
 export default Menu;

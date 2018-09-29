@@ -14,7 +14,7 @@ const PresetsSelector = ({
   onSelect
 }) => 
   <div className="PresetsSelector">
-    <MenuItemContainer name="presets_selector">
+    <MenuItemContainer name="presets_selector" nonTogglable>
       <div className="presets">
         {list.map(name => 
           <a key={name} onClick={onSelect(combinations[name])}>

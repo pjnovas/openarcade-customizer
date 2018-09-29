@@ -1,6 +1,39 @@
-.MenuItem {
-  border-bottom: 2px solid gray;
+.Menu {
+  position: fixed;
+  width: 250px;
+  height: 100%;
+  
+  background: rgba(0,0,0,0.6);
+  padding: 0 10px;
+  font-size: 1em;
 
+  overflow: auto;
+
+  &.left {
+    top: 0;
+    left: 0;
+    border-right: 2px solid silver;
+  }
+
+  &.right {
+    width: 160px;
+    top: 0;
+    right: 0;
+    border-left: 2px solid silver;
+  }
+
+  .MenuItem {
+    border-bottom: 2px solid silver;
+  }
+
+  >div:last-child {
+    .MenuItem {
+      border-bottom: none;
+    }
+  }
+}
+
+.MenuItem {
   display: flex;
   align-items: stretch;
   flex-direction: column;
@@ -8,6 +41,7 @@
   .MenuHeader {
     display: flex;
     flex: 1 1 auto;
+    align-items: center;
 
     cursor: pointer;
     font-size: 1.5em;
@@ -16,7 +50,7 @@
     width: 100%;
     padding: 10px 0;
 
-    >span {
+    >span:first-child {
       margin-right: 10px;
     }
   }
@@ -27,4 +61,23 @@
     width: 100%;
   }
 
+}
+
+/* Overrides for Combinations */
+
+.Menu {
+  &.right {
+    .MenuHeader {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 180px;
+      background-color: rgba(0,0,0,0.6);
+      justify-content: center;
+    }
+
+    .MenuContent {
+      padding-top: 40px;
+    }
+  }
 }
