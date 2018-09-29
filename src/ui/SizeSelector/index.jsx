@@ -19,7 +19,7 @@ const SizeSelector = ({
       <ul>
         <li>
           <label><Text id="fields.size_selector.width"/></label>
-          <input type="number" value={width} onChange={onChange('width')} min={200} max={600} />
+          <input type="number" value={width} onChange={onChange('width')} min={200} max={400} />
         </li>
         <li>
           <label><Text id="fields.size_selector.height"/></label>
@@ -27,7 +27,7 @@ const SizeSelector = ({
         </li>
         <li>
           <label><Text id="fields.size_selector.depth"/></label>
-          <input type="number" value={depth} onChange={onChange('depth')} min={50} max={120} />
+          <input type="number" value={depth} onChange={onChange('depth')} min={160} max={200} />
         </li>
         <li>
           <label><Text id="fields.size_selector.thick"/></label>
