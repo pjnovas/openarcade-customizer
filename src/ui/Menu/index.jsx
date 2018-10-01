@@ -17,6 +17,7 @@ const MENU_ITEM_CHANGE_VISIBLE = 'MENU_ITEM_CHANGE_VISIBLE';
 
 export const reducer = (state = {
   visible_item: 'color_selector',
+  isMobile: false,
   left_hidden: false,
   right_hidden: false
 }, action = {}) => {
@@ -26,9 +27,17 @@ export const reducer = (state = {
       return {...state, visible_item: action.payload};
     }
     case MENU_LEFT_CHANGE_HIDDEN:
-      return {...state, left_hidden: action.payload};
+      return {
+        ...state, 
+        left_hidden: action.payload, 
+        right_hidden: state.isMobile && !action.payload ? true : state.right_hidden
+      };
     case MENU_RIGHT_CHANGE_HIDDEN: 
-      return {...state, right_hidden: action.payload};
+      return {
+        ...state, 
+        right_hidden: action.payload, 
+        left_hidden: state.isMobile && !action.payload ? true : state.left_hidden
+      };
     default: return state;
   }
 };

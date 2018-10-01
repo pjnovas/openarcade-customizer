@@ -11,6 +11,7 @@ import isWebglEnabled from 'detector-webgl';
 let isMobile = window.innerWidth < 500;
 const store = configureStore({
   menu: {
+    isMobile,
     left_hidden: isMobile,
     right_hidden: isMobile
   }
