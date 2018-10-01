@@ -7,7 +7,7 @@ import intersection from 'lodash/intersection';
 
 import ColorPicker from '/ui/ColorPicker';
 import Text from '/ui/Text';
-import {MenuItemContainer} from '/ui/Menu';
+import MenuItemContainer from '/ui/Menu/MenuItem';
 
 const ColorSelector = ({
   parts

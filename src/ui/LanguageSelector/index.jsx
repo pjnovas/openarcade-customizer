@@ -18,9 +18,10 @@ export const reducer = (state = {current: 'es'}, action = {}) => {
 
 const LanguageSelector = ({
   current,
-  setLang
+  setLang,
+  isMenuHidden
 }) =>
-  <div className="LanguageSelector">
+  <div className={`LanguageSelector ${isMenuHidden ? '' : 'offset'}`}>
     <a onClick={() => setLang(current === 'es' ? 'en' : 'es')}>
       {current === 'es' ? 'English' : 'Español'}
     </a>
@@ -28,12 +29,17 @@ const LanguageSelector = ({
 
 LanguageSelector.propTypes = {
   current: PropTypes.string,
-  setLang: PropTypes.func
+  setLang: PropTypes.func,
+  isMenuHidden: PropTypes.bool
 };
 
-export const mapStateToProps = state => state.intl
+export const mapStateToProps = state => ({
+  current: state.intl.current,
+  isMenuHidden: state.menu.right_hidden
+})
+
 export const mapDispatchToProps = dispatch => ({
-  setLang: payload => dispatch({ type: CHANGE_LANGUAGE, payload })
+  setLang: payload => dispatch({ type: CHANGE_LANGUAGE, payload }),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(LanguageSelector);

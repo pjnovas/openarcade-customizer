@@ -1,78 +1,56 @@
 import './style.scss';
 
 import noop from 'lodash/noop';
+import get from 'lodash/get';
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-
 
 import Text from '/ui/Text';
 
 // Reducer
 
-const MENU_CHANGE_VISIBLE = 'MENU_CHANGE_VISIBLE';
+const MENU_LEFT_CHANGE_HIDDEN = 'MENU_LEFT_CHANGE_HIDDEN';
+const MENU_RIGHT_CHANGE_HIDDEN = 'MENU_RIGHT_CHANGE_HIDDEN';
+const MENU_ITEM_CHANGE_VISIBLE = 'MENU_ITEM_CHANGE_VISIBLE';
 
-export const reducer = (state = {visible: 'color_selector'}, action = {}) => {
+export const reducer = (state = {
+  visible_item: 'color_selector',
+  left_hidden: false,
+  right_hidden: false
+}, action = {}) => {
   switch (action.type) {
-    case MENU_CHANGE_VISIBLE: {
-      if(action.payload === state.visible) return {visible: ''};
-      return {...state, visible: action.payload};
+    case MENU_ITEM_CHANGE_VISIBLE: {
+      if(action.payload === state.visible_item) return {visible_item: ''};
+      return {...state, visible_item: action.payload};
     }
+    case MENU_LEFT_CHANGE_HIDDEN:
+      return {...state, left_hidden: action.payload};
+    case MENU_RIGHT_CHANGE_HIDDEN: 
+      return {...state, right_hidden: action.payload};
     default: return state;
   }
 };
 
-// Components
+// Component
 
-export const MenuItem = ({
-  name, 
-  visible, 
-  openMsg, 
-  closedMsg, 
-  onChange, 
-  nonTogglable,
-  children
-}) => 
-  <div className="MenuItem">
-    <a className="MenuHeader" onClick={nonTogglable ? noop : onChange(name)}>
-      <Text id={`fields.${name}.label`}/><span>{visible ? openMsg : closedMsg}</span>
+const Menu = ({children, side, hidden, onChange}) => 
+  <div className={`Menu ${side || ''} ${hidden ? 'hidden': ''}`}>
+    {children}
+    <a className="toggle-menu" onClick={onChange(side, hidden)}>
+      {side === 'left' && (hidden ? <Text id={'fields.toggle_menu'}/> : '<')}
+      {side === 'right' && (hidden ? <Text id={'fields.toggle_presets'}/> : '>')}
     </a>
-    {(nonTogglable || visible) &&
-      <div className="MenuContent">
-        {children}
-      </div>
-    }
   </div>
-
-MenuItem.propTypes = {
-  name: PropTypes.string,
-  openMsg: PropTypes.string,
-  closedMsg: PropTypes.string,
-  collapsed: PropTypes.bool,
-  nonTogglable: PropTypes.bool,
-  onChange: PropTypes.func
-};
-
-MenuItem.defaultProps = {
-  openMsg: '',
-  closedMsg: ''
-};
 
 export const mapStateToProps = (state, ownProps) => ({
-  visible: state.menu.visible === ownProps.name
+  hidden: get(state, `menu.${ownProps.side}_hidden`, false)
 });
 
-export const mapDispatchToProps = dispatch => ({
-  onChange: payload => e => dispatch({type: MENU_CHANGE_VISIBLE, payload})
+export const mapDispatchToProps = (dispatch, ownProps) => ({
+  onChange: (payload, hidden) => 
+    e => dispatch({type: `MENU_${ownProps.side.toUpperCase()}_CHANGE_HIDDEN`, payload: !hidden})
 });
 
-export const MenuItemContainer = connect(mapStateToProps, mapDispatchToProps)(MenuItem);
-
-////////////////
-
-const Menu = ({children, className}) => 
-  <div className={`Menu ${className || ''}`}>
-    {children}
-  </div>
-
-export default Menu;
+export default connect(mapStateToProps, mapDispatchToProps)(Menu);

@@ -11,7 +11,7 @@ import PresetsSelector from '/ui/PresetsSelector';
 const App = () => 
   <div>
     <LanguageSelector/>
-    <Menu className="left">
+    <Menu side="left">
       <Fragment>
         <ModeSelector/>
         <LayoutSelector/>
@@ -19,7 +19,7 @@ const App = () =>
         <ColorSelector/>
       </Fragment>
     </Menu>
-    <Menu className="right">
+    <Menu side="right">
       <PresetsSelector/>
     </Menu>
   </div>

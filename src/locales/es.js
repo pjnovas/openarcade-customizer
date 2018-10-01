@@ -3,13 +3,15 @@ export default {
     title: 'Open Arcade Personalizador'
   },
   fields: {
+    toggle_menu: 'Menú',
+    toggle_presets: 'Combinación',
     mode_selector: 'Modo',
     layout_selector: {
       label: 'Diseño Panel',
-        layouts: {
-          '26x6_ST': 'Derecho',
-          '26x6_EG': 'Ergonómico',
-          '26x6_DG': 'Inclinado'
+      layouts: {
+        '26x6_ST': 'Derecho',
+        '26x6_EG': 'Ergonómico',
+        '26x6_DG': 'Inclinado'
       }
     },
     size_selector: {

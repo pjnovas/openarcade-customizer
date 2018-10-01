@@ -3,6 +3,8 @@ export default {
     title: 'Open Arcade Customizer'
   },
   fields: {
+    toggle_menu: 'Menu',
+    toggle_presets: 'Presets',
     mode_selector: 'Mode',
     layout_selector: {
       label: 'Panel Layout',

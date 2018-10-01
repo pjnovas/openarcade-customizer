@@ -7,7 +7,14 @@ import queryStringSync from './queryStringSync';
 import init from './viewer3D/init.js';
 import isWebglEnabled from 'detector-webgl';
 
-const store = configureStore();
+// Start with both menu hidden on mobile devices
+let isMobile = window.innerWidth < 500;
+const store = configureStore({
+  menu: {
+    left_hidden: isMobile,
+    right_hidden: isMobile
+  }
+});
 
 queryStringSync(store);
 

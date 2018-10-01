@@ -1,10 +1,14 @@
 .LanguageSelector {
   position: fixed;
-  right: 181px;
+  right: 0;
   top: 0;
   padding: 10px;
   font-size: 1.2em;
   z-index: 100;
+
+  &.offset {
+    right: 181px;
+  }
 
   a {
     cursor: pointer;

@@ -1,0 +1,30 @@
+
+.MenuItem {
+  display: flex;
+  align-items: stretch;
+  flex-direction: column;
+
+  .MenuHeader {
+    display: flex;
+    flex: 1 1 auto;
+    align-items: center;
+
+    cursor: pointer;
+    font-size: 1.5em;
+    font-weight: bold;  
+    
+    width: 100%;
+    padding: 10px 0;
+
+    >span:first-child {
+      margin-right: 10px;
+    }
+  }
+
+  .MenuContent {
+    display: flex;
+    flex: 1 0 auto;
+    width: 100%;
+  }
+
+}

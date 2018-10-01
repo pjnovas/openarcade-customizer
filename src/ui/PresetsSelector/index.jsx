@@ -6,7 +6,7 @@ import {connect} from 'react-redux';
 import intersection from 'lodash/intersection';
 
 import Text from '/ui/Text';
-import {MenuItemContainer} from '/ui/Menu';
+import MenuItemContainer from '/ui/Menu/MenuItem';
 
 const PresetsSelector = ({
   list,

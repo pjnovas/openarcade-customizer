@@ -4,7 +4,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 
-import {MenuItemContainer} from '/ui/Menu';
+import MenuItemContainer from '/ui/Menu/MenuItem';
 import Text from '/ui/Text';
 
 const SizeSelector = ({
