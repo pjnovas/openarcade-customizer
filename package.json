@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "start": "parcel src/index.html",
-    "build:prod": "NODE_ENV=production parcel build src/index.html -d dist/output"
+    "build:prod": "NODE_ENV=production parcel build src/index.html -d output"
   },
   "keywords": [],
   "author": "Pablo Novas <pjnovas@gmail.com>",
