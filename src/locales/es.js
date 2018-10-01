@@ -68,5 +68,8 @@ export default {
       filament: 'Filamento de impresión 3D',
       vinyl: 'Vinilo Mate'
     }
+  },
+  errors: {
+    webgl_not_supported: 'WebGL no soportado o deshabilitado'
   }
 }

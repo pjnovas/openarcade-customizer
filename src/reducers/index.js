@@ -16,3 +16,4 @@ export {reducer as menu} from '/ui/Menu';
 // Selection
 
 export {reducer as current} from './current';
+export {reducer as error} from './error';

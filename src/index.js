@@ -25,5 +25,5 @@ if (isWebglEnabled) {
   init(store);
 }
 else {
-  throw new Error('WEBGL disabled, bye')
+  store.dispatch({type: 'ERROR_SET_FATAL', payload: 'errors.webgl_not_supported'});
 }

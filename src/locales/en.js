@@ -68,5 +68,8 @@ export default {
       filament: '3D printing filament',
       vinyl: 'Flat Vinyl'
     }
+  },
+  errors: {
+    webgl_not_supported: 'WebGL not supported or disabled'
   }
 }
