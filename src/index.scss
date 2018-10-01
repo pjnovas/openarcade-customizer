@@ -1,9 +1,12 @@
+@import url('https://fonts.googleapis.com/css?family=Play');
+
 ::-webkit-scrollbar {
   width: 10px;
 }
 
 ::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.2);
+  box-shadow: inset 0 0 6px rgba(0,0,0,0.2);
 }
 
 ::-webkit-scrollbar-thumb {
@@ -17,6 +20,11 @@ body {
   color: #fff;
   margin: 0px;
   overflow: hidden;
+  font-size: 12px;
+}
+
+body, input, select {
+  font-family: 'Play', sans-serif;
 }
 
 .fata-error {
