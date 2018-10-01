@@ -1,15 +1,14 @@
 {
-  "name": "arcade-box-customizer",
+  "name": "openarcade-customizer",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "A customization Tool for OpenArcade website",
+  "main": "src/index.js",
   "scripts": {
-    "start": "parcel src/index.html",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "parcel src/index.html"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Pablo Novas <pjnovas@gmail.com>",
+  "license": "cc-by-nc-sa-4.0",
   "devDependencies": {
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
