@@ -23,7 +23,7 @@ export const reducer = (state = {
 }, action = {}) => {
   switch (action.type) {
     case MENU_ITEM_CHANGE_VISIBLE: {
-      if(action.payload === state.visible_item) return {visible_item: ''};
+      if(action.payload === state.visible_item) return {...state, visible_item: ''};
       return {...state, visible_item: action.payload};
     }
     case MENU_LEFT_CHANGE_HIDDEN:
