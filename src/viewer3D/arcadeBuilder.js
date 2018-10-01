@@ -27,11 +27,15 @@ export default ({scene, store}) => {
   let {
     box,
     combination,
-    mode
+    mode,
+    layout
   } = current;
 
   let settings = getSettings(box);
-  let modelGeometries = modes[mode].reduce((all, model) => ({...all, [model]: models.geometries[model]}), {});
+  let modelGeometries = modes[mode].reduce((all, model) => ({
+    ...all, 
+    [model]: model === 'buttons' ? models.geometries[`buttons_${layout}`] : models.geometries[model]
+  }), {});
 
   let meshMaterials = Object.keys(combination).reduce((result, name) => 
     Object.assign(result, {

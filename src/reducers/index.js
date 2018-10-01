@@ -4,6 +4,7 @@ export {reducer as models} from './models';
 export {reducer as colors} from './colors';
 export {reducer as combinations} from './combinations';
 export {reducer as modes} from './modes';
+export {reducer as layouts} from './layouts';
 export {reducer as materials} from './materials';
 
 // UI

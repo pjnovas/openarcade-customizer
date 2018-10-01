@@ -4,6 +4,7 @@ import Menu from './Menu';
 
 import SizeSelector from '/ui/SizeSelector';
 import ModeSelector from '/ui/ModeSelector';
+import LayoutSelector from '/ui/LayoutSelector';
 import ColorSelector from '/ui/ColorSelector';
 import PresetsSelector from '/ui/PresetsSelector';
 
@@ -13,6 +14,7 @@ const App = () =>
     <Menu className="left">
       <Fragment>
         <ModeSelector/>
+        <LayoutSelector/>
         <SizeSelector/>
         <ColorSelector/>
       </Fragment>

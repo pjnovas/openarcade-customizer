@@ -8,7 +8,9 @@ const names = [
   'cheat_buttons',
   'rpi_back',
   'ventilation',
-  'buttons',
+  'buttons_26x6_EG',
+  'buttons_26x6_DG',
+  'buttons_26x6_ST',
   'button_power',
   'button12'
 ]

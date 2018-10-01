@@ -4,6 +4,14 @@ export default {
   },
   fields: {
     mode_selector: 'Modo',
+    layout_selector: {
+      label: 'Diseño Panel',
+        layouts: {
+          '26x6_ST': 'Derecho',
+          '26x6_EG': 'Ergonómico',
+          '26x6_DG': 'Inclinado'
+      }
+    },
     size_selector: {
       label: 'Tamaño',
       width: 'Ancho',

@@ -4,6 +4,14 @@ export default {
   },
   fields: {
     mode_selector: 'Mode',
+    layout_selector: {
+      label: 'Panel Layout',
+      layouts: {
+        '26x6_ST': 'Straight',
+        '26x6_EG': 'Ergonomic',
+        '26x6_DG': 'Leaned'
+      }
+    },
     size_selector: {
       label: 'Size',
       width: 'Width',

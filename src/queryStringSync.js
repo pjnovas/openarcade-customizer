@@ -2,6 +2,7 @@ import get from 'lodash/get';
 import ReduxQuerySync from 'redux-query-sync';
 
 import * as modes from '/reducers/modes';
+import * as layouts from '/reducers/layouts';
 import * as colors from '/reducers/colors';
 import * as current from '/reducers/current';
 
@@ -61,6 +62,10 @@ export default store => ReduxQuerySync({
       action: merge(value => ({type: current.CURRENT_CHANGE_MODE, payload: value})),
       valueToString: modes.valueToString,
       stringToValue: modes.stringToValue
+    },
+    ly: {
+      selector: state => state.current.layout,
+      action: merge(value => ({type: current.CURRENT_CHANGE_LAYOUT, payload: value}))
     },
     ...getSizeParams(),
     ...getCombinatonParams()
