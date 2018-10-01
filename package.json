@@ -4,7 +4,8 @@
   "description": "A customization Tool for OpenArcade website",
   "main": "src/index.js",
   "scripts": {
-    "start": "parcel src/index.html"
+    "start": "parcel src/index.html",
+    "build:prod": "NODE_ENV=production parcel build src/index.html -d dist/output"
   },
   "keywords": [],
   "author": "Pablo Novas <pjnovas@gmail.com>",

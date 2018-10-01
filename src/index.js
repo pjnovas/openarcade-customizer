@@ -13,9 +13,9 @@ queryStringSync(store);
 
 renderUI(store);
 
-if (!isWebglEnabled) {
-  console.error('WEBGL disabled, bye');
-  return;
+if (isWebglEnabled) {
+  init(store);
 }
-
-init(store);
+else {
+  throw new Error('WEBGL disabled, bye')
+}
