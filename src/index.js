@@ -13,7 +13,8 @@ const store = configureStore({
   menu: {
     isMobile,
     left_hidden: isMobile,
-    right_hidden: isMobile
+    right_hidden: isMobile,
+    visible_item: 'color_selector'
   }
 });
 

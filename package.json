@@ -11,14 +11,16 @@
   "author": "Pablo Novas <pjnovas@gmail.com>",
   "license": "cc-by-nc-sa-4.0",
   "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-plugin-syntax-dynamic-import": "^6.18.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-react": "^6.24.1",
     "node-sass": "^4.9.3",
     "parcel-bundler": "^1.10.3",
     "parcel-plugin-static-files-copy": "^1.2.1"
   },
   "dependencies": {
-    "babel-plugin-syntax-dynamic-import": "^6.18.0",
     "detector-webgl": "^2.0.0",
     "flat": "^4.1.0",
     "lodash": "^4.17.11",
