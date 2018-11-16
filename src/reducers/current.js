@@ -4,7 +4,8 @@ const initial = {
     width: 200, // X
     height: 70, // Y
     depth: 160, // Z
-    thick: 6
+    thick: 6,
+    acrylic: 3
   },
   combination: {
     buttons: 'green',

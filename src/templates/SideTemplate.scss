@@ -1,0 +1,35 @@
+
+.SideTemplate {
+
+  .bound-rect {
+    stroke: #333;
+    stroke-width: 1;
+    fill: #fff;
+  }
+
+  text {
+    fill: #888;
+    font-size: 2em;
+    text-anchor: middle;
+    text-transform: uppercase;
+  }
+
+  .cut-sections {
+    rect {
+      stroke: #333;
+      stroke-width: 1;
+    }
+  }
+
+  .screw-holes {
+    circle {
+      stroke: #333;
+      stroke-width: 1;
+
+      &.point {
+        fill: #000;
+      }
+    }
+  }
+  
+}

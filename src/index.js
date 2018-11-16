@@ -1,6 +1,7 @@
 import './index.scss';
 
 import renderUI from './ui/index.jsx';
+import renderTemplates from './templates/index.jsx';
 import configureStore from './configureStore';
 import queryStringSync from './queryStringSync';
 
@@ -20,10 +21,12 @@ const store = configureStore({
 
 queryStringSync(store);
 
-renderUI(store);
+// renderUI(store);
+
+renderTemplates(store);
 
 if (isWebglEnabled) {
-  init(store);
+  // init(store);
 }
 else {
   store.dispatch({type: 'ERROR_SET_FATAL', payload: 'errors.webgl_not_supported'});

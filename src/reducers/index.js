@@ -17,3 +17,6 @@ export {reducer as menu} from '/ui/Menu';
 
 export {reducer as current} from './current';
 export {reducer as error} from './error';
+
+// Templates
+export {reducer as templates} from '../templates/settings';
