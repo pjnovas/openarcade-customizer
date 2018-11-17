@@ -1,49 +1,48 @@
 
 
 const getTopLHoleHeight = ({thick, acrylic}, {TOP_L_HOLE_HEIGHT}) => thick + acrylic + TOP_L_HOLE_HEIGHT;
-const getTopLHoleWidth = isLateral => ({thick}, {TOP_L_HOLE_WIDTH}) => isLateral ? thick + TOP_L_HOLE_WIDTH : TOP_L_HOLE_WIDTH;
-const getLegHoleDepth = isLateral => ({thick}, {LEG_HOLE_DEPTH}) => isLateral ? thick + LEG_HOLE_DEPTH : LEG_HOLE_DEPTH;
+const getTopLHoleWidth = (isLateral, {thick}, {TOP_L_HOLE_WIDTH}) => isLateral ? thick + TOP_L_HOLE_WIDTH : TOP_L_HOLE_WIDTH;
+const getLegHoleDepth = (isLateral, {thick}, {LEG_HOLE_DEPTH}) => isLateral ? thick + LEG_HOLE_DEPTH : LEG_HOLE_DEPTH;
 
-const getTopLHoleWidthFB = getTopLHoleWidth(false);
-const getLegHoleDepthFB = getLegHoleDepth(false);
+const getSideWidth = (isLateral, {width, depth, thick}) => isLateral ? depth + (thick * 2) : width;
 
-const getTopLHoleWidthLR = getTopLHoleWidth(true);
-const getLegHoleDepthLR = getLegHoleDepth(true);
+const getSideScrewHoles = (isLateral, { current, templates }) => [{
+  x: getTopLHoleWidth(isLateral, current.box, templates),
+  y: getTopLHoleHeight(current.box, templates)
+}, {
+  x: getSideWidth(isLateral, current.box) - getTopLHoleWidth(isLateral, current.box, templates),
+  y: getTopLHoleHeight(current.box, templates)
+}, {
+  x: getLegHoleDepth(isLateral, current.box, templates),
+  y: current.box.height - templates.LEG_HOLE_HEIGHT
+}, {
+  x: getSideWidth(isLateral, current.box) - getLegHoleDepth(isLateral, current.box, templates),
+  y: current.box.height - templates.LEG_HOLE_HEIGHT
+}];
 
 export const selectFrontTemplate = ({ current, templates }) => ({
   name: {
     label: 'Front',
-    x: current.box.width / 2,
+    x: getSideWidth(false, current.box) / 2,
     y: templates.TOP_LEGEND_LABEL
   },
   size: {
-    width: current.box.width,
+    width: getSideWidth(false, current.box),
     height: current.box.height,
   },
-  screwHoles: [{
-    x: getTopLHoleWidthFB(current.box, templates),
-    y: getTopLHoleHeight(current.box, templates)
-  }, {
-    x: current.box.width - getTopLHoleWidthFB(current.box, templates),
-    y: getTopLHoleHeight(current.box, templates)
-  }, {
-    x: getLegHoleDepthFB(current.box, templates),
-    y: current.box.height - templates.LEG_HOLE_HEIGHT
-  }, {
-    x: current.box.width - getLegHoleDepthFB(current.box, templates),
-    y: current.box.height - templates.LEG_HOLE_HEIGHT
-  }, 
+  screwHoles: [
+    ...getSideScrewHoles(false, { current, templates }),
     // Buttons
   {
-    x: current.box.width / templates.FRONT_BUTTONS_RATE_POS,
+    x: getSideWidth(false, current.box) / templates.FRONT_BUTTONS_RATE_POS,
     y: current.box.height / 2,
     dia: templates.POWER_DIAMETER
   }, {
-    x: current.box.width - (current.box.width / templates.FRONT_BUTTONS_RATE_POS),
+    x: getSideWidth(false, current.box) - (getSideWidth(false, current.box) / templates.FRONT_BUTTONS_RATE_POS),
     y: current.box.height / 2,
     dia: templates.START_DIAMETER
   }, {
-    x: current.box.width - (current.box.width / templates.FRONT_BUTTONS_RATE_POS) - (templates.SELECT_DIAMETER * 2),
+    x: getSideWidth(false, current.box) - (getSideWidth(false, current.box) / templates.FRONT_BUTTONS_RATE_POS) - (templates.SELECT_DIAMETER * 2),
     y: current.box.height / 2,
     dia: templates.SELECT_DIAMETER
   }]
@@ -60,49 +59,108 @@ const getBackYHole = ({ current, templates }) =>
 export const selectBackTemplate = ({ current, templates }) => ({
   name: {
     label: 'Back',
-    x: current.box.width / 2,
+    x: getSideWidth(false, current.box) / 2,
     y: templates.TOP_LEGEND_LABEL
   },
   size: {
-    width: current.box.width,
+    width: getSideWidth(false, current.box),
     height: current.box.height,
   },
-  screwHoles: [{
-    x: getTopLHoleWidthFB(current.box, templates),
-    y: getTopLHoleHeight(current.box, templates)
-  }, {
-    x: current.box.width - getTopLHoleWidthFB(current.box, templates),
-    y: getTopLHoleHeight(current.box, templates)
-  }, {
-    x: getLegHoleDepthFB(current.box, templates),
-    y: current.box.height - templates.LEG_HOLE_HEIGHT
-  }, {
-    x: current.box.width - getLegHoleDepthFB(current.box, templates),
-    y: current.box.height - templates.LEG_HOLE_HEIGHT
-  }, 
+  screwHoles: [
+    ...getSideScrewHoles(false, { current, templates }),
   // Section Holes
   { // left
-    x: ((current.box.width / 2) - (templates.SECTION_WIDTH * 4) / 2) - templates.SECTION_HOLE_DISTANCE,
+    x: ((getSideWidth(false, current.box) / 2) - (templates.SECTION_WIDTH * 4) / 2) - templates.SECTION_HOLE_DISTANCE,
     y: getBackYHole({ current, templates })
   }, { // big right
-    x: ((current.box.width / 2) + (templates.SECTION_WIDTH * 2)) + templates.SECTION_HOLE_DISTANCE,
+    x: ((getSideWidth(false, current.box) / 2) + (templates.SECTION_WIDTH * 2)) + templates.SECTION_HOLE_DISTANCE,
     y: getBackYHole({ current, templates })
   }, { // small left
-    x: ((current.box.width / 2) + templates.SECTION_WIDTH) - templates.SECTION_HOLE_DISTANCE,
+    x: ((getSideWidth(false, current.box) / 2) + templates.SECTION_WIDTH) - templates.SECTION_HOLE_DISTANCE,
     y: getBackYHole({ current, templates })
   }, { // mid right
-    x: ((current.box.width / 2) + templates.SECTION_WIDTH) + templates.SECTION_HOLE_DISTANCE,
+    x: ((getSideWidth(false, current.box) / 2) + templates.SECTION_WIDTH) + templates.SECTION_HOLE_DISTANCE,
     y: getBackYHole({ current, templates })
   }],
   sections: [{
-    x: (current.box.width / 2) - (templates.SECTION_WIDTH * 4) / 2,
+    x: (getSideWidth(false, current.box) / 2) - (templates.SECTION_WIDTH * 4) / 2,
     y: getBackY({ current, templates }),
     width: templates.SECTION_WIDTH * 4,
     height: templates.SECTION_HEIGHT
   }, {
-    x: (current.box.width / 2) + templates.SECTION_WIDTH,
+    x: (getSideWidth(false, current.box) / 2) + templates.SECTION_WIDTH,
     y: getBackY({ current, templates }),
     width: templates.SECTION_WIDTH,
+    height: templates.SECTION_HEIGHT
+  }]
+});
+
+const getSideY = ({ current, templates }) => 
+  (current.box.height / 2) - (templates.SECTION_HEIGHT / 2);
+
+const getSideYHole = ({ current, templates }) => 
+  getSideY({ current, templates }) + (templates.SECTION_HEIGHT / 2);
+
+export const selectLeftTemplate = ({ current, templates }) => ({
+  name: {
+    label: 'left',
+    x: getSideWidth(true, current.box) / 2,
+    y: templates.TOP_LEGEND_LABEL
+  },
+  size: {
+    width: getSideWidth(true, current.box),
+    height: current.box.height,
+  },
+  screwHoles: [
+    ...getSideScrewHoles(true, { current, templates }),
+  // Section Holes
+  { // left
+    x: ((getSideWidth(true, current.box) / 2) - (templates.SECTION_WIDTH * 3) / 2) - templates.SECTION_HOLE_DISTANCE,
+    y: getSideYHole({ current, templates })
+  }, { // big right
+    x: ((getSideWidth(true, current.box) / 2) + (templates.SECTION_WIDTH * 1.5)) + templates.SECTION_HOLE_DISTANCE,
+    y: getSideYHole({ current, templates })
+  }, { // small left
+    x: ((getSideWidth(true, current.box) / 2) + templates.SECTION_WIDTH / 2) - templates.SECTION_HOLE_DISTANCE,
+    y: getSideYHole({ current, templates })
+  }],
+  sections: [{
+    x: (getSideWidth(true, current.box) / 2) - (templates.SECTION_WIDTH * 3) / 2,
+    y: getSideY({ current, templates }),
+    width: templates.SECTION_WIDTH * 3,
+    height: templates.SECTION_HEIGHT
+  }, {
+    x: (getSideWidth(true, current.box) / 2) + templates.SECTION_WIDTH / 2,
+    y: getSideY({ current, templates }),
+    width: templates.SECTION_WIDTH,
+    height: templates.SECTION_HEIGHT
+  }]
+});
+
+export const selectRightTemplate = ({ current, templates }) => ({
+  name: {
+    label: 'right',
+    x: getSideWidth(true, current.box) / 2,
+    y: templates.TOP_LEGEND_LABEL
+  },
+  size: {
+    width: getSideWidth(true, current.box),
+    height: current.box.height,
+  },
+  screwHoles: [
+    ...getSideScrewHoles(true, { current, templates }),
+  // Section Holes
+  { // left
+    x: ((getSideWidth(true, current.box) / 2) - (templates.SECTION_WIDTH * 3) / 2) - templates.SECTION_HOLE_DISTANCE,
+    y: getSideYHole({ current, templates })
+  }, { // big right
+    x: ((getSideWidth(true, current.box) / 2) + (templates.SECTION_WIDTH * 1.5)) + templates.SECTION_HOLE_DISTANCE,
+    y: getSideYHole({ current, templates })
+  }],
+  sections: [{
+    x: (getSideWidth(true, current.box) / 2) - (templates.SECTION_WIDTH * 3) / 2,
+    y: getSideY({ current, templates }),
+    width: templates.SECTION_WIDTH * 3,
     height: templates.SECTION_HEIGHT
   }]
 });

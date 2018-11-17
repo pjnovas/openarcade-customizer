@@ -16,7 +16,9 @@ import {
 
 import { 
   selectFrontTemplate,
-  selectBackTemplate
+  selectBackTemplate,
+  selectLeftTemplate,
+  selectRightTemplate
 } from './selectors';
 
 const SideTemplate = ({
@@ -41,9 +43,11 @@ const SideTemplate = ({
           fill="url(#diagonalHatch)"/>
       )}
     </g>
+
     <g className="screw-holes">
       {screwHoles.map((hole, i) => <Hole key={i} dia={screwDiameter} {...hole} />)}
     </g>
+    
     <text x={mm(name.x)} y={mm(name.y)}>{name.label}</text>
   </g>
 );
@@ -74,6 +78,8 @@ const mapStateToProps = (state, ownProps) => {
   switch (ownProps.type) {
     case 'front': return Object.assign(base, selectFrontTemplate(state));
     case 'back': return Object.assign(base, selectBackTemplate(state));
+    case 'left': return Object.assign(base, selectLeftTemplate(state));
+    case 'right': return Object.assign(base, selectRightTemplate(state));
     default: return {};
   }
 };

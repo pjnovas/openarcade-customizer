@@ -12,8 +12,13 @@ const Sheet = ({size}) => (
       <path d="M0,8 l8,-8" style={{stroke: '#ddd', strokeWidth: 1}} />
     </pattern>
     
+    {/*
     <SideTemplate type="front" pos={{x: 150, y: 30}}/>
     <SideTemplate type="back" pos={{x: 150, y: 350}}/>
+    */}
+
+    <SideTemplate type="left" pos={{x: 150, y: 30}}/>
+    <SideTemplate type="right" pos={{x: 150, y: 350}}/>
   </svg>
 );
 
