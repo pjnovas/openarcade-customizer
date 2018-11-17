@@ -1,0 +1,19 @@
+
+body {
+  overflow: auto;
+}
+
+.pages {
+  svg {
+    box-sizing: border-box;
+    background-color: #fff;
+    border: solid 2px silver;
+  }
+
+  
+  @media print {
+    svg { 
+      page-break-before: always;
+    }
+  }
+}

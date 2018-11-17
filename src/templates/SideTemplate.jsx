@@ -4,6 +4,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
+import isEmpty from 'lodash/isEmpty';
+
 import Hole from './Hole';
 import { mm } from './utils';
 
@@ -27,21 +29,20 @@ const SideTemplate = ({
   size,
   screwHoles,
   screwDiameter,
-  sections
+  section
 }) => (
   <g transform={`translate(${pos.x}, ${pos.y})`} className="SideTemplate">
     <rect width={mm(size.width)} height={mm(size.height)} className="bound-rect"/>
 
     <g className="cut-sections">
-      {sections.map((section, i) => 
+      {!isEmpty(section) && 
         <rect
-          key={i}
           x={mm(section.x)}
           y={mm(section.y)}
           width={mm(section.width)}
           height={mm(section.height)}
           fill="url(#diagonalHatch)"/>
-      )}
+      }
     </g>
 
     <g className="screw-holes">
@@ -62,12 +63,13 @@ SideTemplate.propTypes = {
   size: PropTypes.shape(sizeShape),
   screwHoles: PropTypes.arrayOf(PropTypes.shape(circleShape)),
   screwDiameter: PropTypes.number,
-  sections: PropTypes.arrayOf(PropTypes.shape(rectShape)),
+  section: PropTypes.shape(rectShape)
 };
 
 SideTemplate.defaultProps = {
+  pos: {x: 0, y: 0},
   screwHoles: [],
-  sections: []
+  section: {}
 };
 
 const mapStateToProps = (state, ownProps) => {
